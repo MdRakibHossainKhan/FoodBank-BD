@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/layout_backgroung_alice_blue"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:padding="@dimen/mid_padding">
 
     <ImageView
         android:id="@+id/imageViewArea"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/mid_margin"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 
@@ -17,11 +19,11 @@
         android:id="@+id/textViewArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:background="@drawable/layout_background_light_sky_blue"
-        android:ellipsize="end"
         android:gravity="center"
+        android:paddingStart="@dimen/min_padding"
+        android:paddingEnd="@dimen/min_padding"
         android:singleLine="true"
-        android:text="Shyamoli"
-        android:textSize="15sp" />
-</FrameLayout>
+        android:text="@string/shyamoli"
+        android:textSize="@dimen/sub_title_text" />
+</LinearLayout>

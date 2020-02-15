@@ -1,63 +1,56 @@
 package com.rakib.foodbankbd
 
-import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.rakib.foodbankbd.adapters.OfferRecyclerViewAdapter
 import com.rakib.foodbankbd.entities.OfferObject
 import com.rakib.foodbankbd.helpers.SpacesItemDecoration
+import kotlinx.android.synthetic.main.activity_offers.*
 import java.util.*
 
 class OffersActivity : AppCompatActivity() {
-    var offersTitle: TextView? = null
     var areaCode = 0
-    private lateinit var offerRecyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_offers)
 
-        offersTitle = findViewById(R.id.textViewOffersTitle)
-        areaCode = intent.extras.getInt("AREA_CODE")
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        offerRecyclerView = findViewById(R.id.recyclerViewOffer)
+        areaCode = intent.extras!!.getInt("AREA_CODE")
         val gridLayoutManager = GridLayoutManager(this@OffersActivity, 2)
-        offerRecyclerView.layoutManager = gridLayoutManager
-        offerRecyclerView.setHasFixedSize(true)
-        offerRecyclerView.addItemDecoration(SpacesItemDecoration(2, 24, true))
+        recyclerViewOffer.layoutManager = gridLayoutManager
+        recyclerViewOffer.setHasFixedSize(true)
+        recyclerViewOffer.addItemDecoration(SpacesItemDecoration(2, 24, true))
         areaWiseOfferShower()
     }
 
     private fun areaWiseOfferShower() {
         when (areaCode) {
             0 -> {
-                offerRecyclerView.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromShyamoli)
-                offersTitle!!.text = "Offers in Shyamoli"
+                recyclerViewOffer.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromShyamoli)
+                textViewOffersTitle.text = "Offers in Shyamoli"
             }
             1 -> {
-                offerRecyclerView.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromDhanmondi)
-                offersTitle!!.text = "Offers in Dhanmondi"
+                recyclerViewOffer.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromDhanmondi)
+                textViewOffersTitle.text = "Offers in Dhanmondi"
             }
             2 -> {
-                offerRecyclerView.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromBanani)
-                offersTitle!!.text = "Offers in Banani"
+                recyclerViewOffer.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromBanani)
+                textViewOffersTitle.text = "Offers in Banani"
             }
             3 -> {
-                offerRecyclerView.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromMirpur)
-                offersTitle!!.text = "Offers in Mirpur"
+                recyclerViewOffer.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromMirpur)
+                textViewOffersTitle.text = "Offers in Mirpur"
             }
             4 -> {
-                offerRecyclerView.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromWari)
-                offersTitle!!.text = "Offers in Wari"
+                recyclerViewOffer.adapter = OfferRecyclerViewAdapter(this@OffersActivity, allOffersFromWari)
+                textViewOffersTitle.text = "Offers in Wari"
             }
         }
     }
 
     private val allOffersFromShyamoli: List<OfferObject>
-        private get() {
+        get() {
             val offers: MutableList<OfferObject> = ArrayList()
             offers.add(OfferObject(
                     "Couple Offer",
@@ -71,7 +64,7 @@ class OffersActivity : AppCompatActivity() {
         }
 
     private val allOffersFromDhanmondi: List<OfferObject>
-        private get() {
+        get() {
             val offers: MutableList<OfferObject> = ArrayList()
             offers.add(OfferObject(
                     "Matha Noshto Offer",
@@ -117,7 +110,7 @@ class OffersActivity : AppCompatActivity() {
         }
 
     private val allOffersFromBanani: List<OfferObject>
-        private get() {
+        get() {
             val offers: MutableList<OfferObject> = ArrayList()
             offers.add(OfferObject(
                     "Ultimate Chocolate Cake",
@@ -131,7 +124,7 @@ class OffersActivity : AppCompatActivity() {
         }
 
     private val allOffersFromMirpur: List<OfferObject>
-        private get() {
+        get() {
             val offers: MutableList<OfferObject> = ArrayList()
             offers.add(OfferObject(
                     "BBQ Feast",
@@ -177,7 +170,7 @@ class OffersActivity : AppCompatActivity() {
         }
 
     private val allOffersFromWari: List<OfferObject>
-        private get() {
+        get() {
             val offers: MutableList<OfferObject> = ArrayList()
             offers.add(OfferObject(
                     "SP: 02",
