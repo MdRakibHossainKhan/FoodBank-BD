@@ -4,9 +4,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.rakib.foodbankbd.R
+import kotlinx.android.synthetic.main.layout_area.view.*
 
 class OfferRecyclerViewHolder(itemView: View) : ViewHolder(itemView) {
-    var offerImage: ImageView = itemView.findViewById(R.id.imageViewArea)
-    var offerName: TextView = itemView.findViewById(R.id.textViewArea)
+    var offerImage: ImageView = itemView.imageViewArea
+    var offerName: TextView = itemView.textViewArea
 }
